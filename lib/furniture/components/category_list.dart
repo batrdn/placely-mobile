@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:placely_mobile/constants.dart';
 
-// We need statefull widget because we are gonna change some state on our category
 class CategoryList extends StatefulWidget {
   @override
   _CategoryListState createState() => _CategoryListState();
 }
 
 class _CategoryListState extends State<CategoryList> {
-  // by default first item will be selected
   int selectedIndex = 0;
   List categories = ['Бүгд', 'Буйдан', 'Сандал', 'Ширээ', 'Ор', 'Бусад'];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +28,6 @@ class _CategoryListState extends State<CategoryList> {
             alignment: Alignment.center,
             margin: EdgeInsets.only(
               left: defaultPadding,
-              // At end item it add extra 20 right  padding
               right: index == categories.length - 1 ? defaultPadding : 0,
             ),
             padding: EdgeInsets.symmetric(horizontal: defaultPadding),

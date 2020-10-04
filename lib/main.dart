@@ -10,14 +10,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Welcome to Placely',
       theme: ThemeData(
-        // We set Poppins as our default font
         textTheme: GoogleFonts.robotoTextTheme(Theme.of(context).textTheme),
         primaryColor: primaryColor,
         accentColor: primaryColor,

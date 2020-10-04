@@ -11,9 +11,7 @@ class Body extends StatelessWidget {
   const Body({Key key, this.furniture}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    // it provide us total height and width
     Size size = MediaQuery.of(context).size;
-    // it enable scrolling on small devices
     return SafeArea(
       bottom: false,
       child: SingleChildScrollView(
