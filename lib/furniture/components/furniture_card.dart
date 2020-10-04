@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:placely_mobile/constants.dart';
 import 'package:placely_mobile/model/furniture.dart';
 
-class Cart extends StatelessWidget {
-  const Cart({
+class FurnitureCard extends StatelessWidget {
+  const FurnitureCard({
     Key key,
     this.itemIndex,
     this.furniture,
@@ -91,7 +91,7 @@ class Cart extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        "\$${furniture.price}",
+                        "${furniture.price}₮",
                         style: Theme.of(context).textTheme.button,
                       ),
                     ),

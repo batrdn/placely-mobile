@@ -4,7 +4,7 @@ import 'package:placely_mobile/details/details_screen.dart';
 import 'package:placely_mobile/model/furniture.dart';
 
 import 'category_list.dart';
-import 'cart.dart';
+import 'furniture_card.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -30,9 +30,8 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 ListView.builder(
-                  // here we use our demo procuts list
                   itemCount: furniture.length,
-                  itemBuilder: (context, index) => Cart(
+                  itemBuilder: (context, index) => FurnitureCard(
                     itemIndex: index,
                     furniture: furniture[index],
                     press: () {

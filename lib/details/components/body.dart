@@ -49,7 +49,7 @@ class Body extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '\$${furniture.price}',
+                    '${furniture.price}₮',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
