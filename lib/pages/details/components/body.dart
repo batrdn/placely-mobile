@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:placely_mobile/constants.dart';
-import 'package:placely_mobile/model/furniture.dart';
+import 'package:placely_mobile/models/furniture.dart';
 
 import 'view_and_add_to_cart.dart';
 import 'furniture_image.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:placely_mobile/constants.dart';
-import 'package:placely_mobile/details/details_screen.dart';
-import 'package:placely_mobile/model/furniture.dart';
+import 'package:placely_mobile/pages/details/details_screen.dart';
+import 'package:placely_mobile/models/furniture.dart';
 
 import 'category_list.dart';
 import 'furniture_card.dart';

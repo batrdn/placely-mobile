@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:placely_mobile/constants.dart';
-import 'package:placely_mobile/model/furniture.dart';
+import 'package:placely_mobile/models/furniture.dart';
 
 import 'components/body.dart';
 

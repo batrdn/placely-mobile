@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:placely_mobile/animations/fade_animation.dart';
-import 'package:placely_mobile/home/components/fingerprint_button.dart';
-import 'package:placely_mobile/home/components/login_button.dart';
-import 'package:placely_mobile/home/components/password_field.dart';
-import 'package:placely_mobile/home/components/phone_field.dart';
-import 'package:placely_mobile/home/components/register_button.dart';
+import 'package:placely_mobile/pages/home/components/fingerprint_button.dart';
+import 'package:placely_mobile/pages/home/components/login_button.dart';
+import 'package:placely_mobile/pages/home/components/password_field.dart';
+import 'package:placely_mobile/pages/home/components/phone_field.dart';
+import 'package:placely_mobile/pages/home/components/register_button.dart';
+import 'package:placely_mobile/pages/registration/registration.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -43,14 +43,18 @@ class HomePage extends StatelessWidget {
                   child: FadeAnimation(
                       2,
                       Row(
-                        children: [
-                          LoginButton(),
-                          FingerPrintButton()
-                        ],
+                        children: [LoginButton(), FingerPrintButton()],
                       )),
                 ),
                 Center(
-                  child: FadeAnimation(2, RegisterButton()),
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RegistrationPage()));
+                      },
+                      child: FadeAnimation(2, RegisterButton())),
                 )
               ],
             )
