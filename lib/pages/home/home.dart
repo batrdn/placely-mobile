@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:placely_mobile/animations/fade_animation.dart';
 import 'package:placely_mobile/pages/home/components/fingerprint_button.dart';
 import 'package:placely_mobile/pages/home/components/login_button.dart';
@@ -6,8 +9,18 @@ import 'package:placely_mobile/pages/home/components/password_field.dart';
 import 'package:placely_mobile/pages/home/components/phone_field.dart';
 import 'package:placely_mobile/pages/home/components/register_button.dart';
 import 'package:placely_mobile/pages/registration/registration.dart';
+import 'package:placely_mobile/pages/retailer_dashboard/retailer_dashboard.dart';
+import 'package:placely_mobile/services/auth_service.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  HomePageState createState() => HomePageState();
+}
+
+class HomePageState extends State<HomePage> {
+  String phoneNumber;
+  String password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,8 +39,16 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  FadeAnimation(1.8, PhoneField()),
-                  FadeAnimation(1.8, PasswordField())
+                  FadeAnimation(
+                      1.8,
+                      PhoneField(
+                          onPhoneChange: (String phoneNumber) =>
+                          setState(() => this.phoneNumber = phoneNumber))),
+                  FadeAnimation(
+                      1.8,
+                      PasswordField(
+                          onPasswordChange: (String password) =>
+                          setState(() => this.password = password)))
                 ],
               ),
             ),
@@ -43,7 +64,25 @@ class HomePage extends StatelessWidget {
                   child: FadeAnimation(
                       2,
                       Row(
-                        children: [LoginButton(), FingerPrintButton()],
+                        children: [
+                          GestureDetector(
+                            child: LoginButton(),
+                            onTap: () async {
+                              Response response =
+                              await AuthenticationService.login(
+                                  phoneNumber, password);
+                              print(response.statusCode);
+                              if (response.statusCode == HttpStatus.ok) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            RetailerDashboard()));
+                              }
+                            },
+                          ),
+                          FingerPrintButton()
+                        ],
                       )),
                 ),
                 Center(

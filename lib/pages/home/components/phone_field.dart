@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+
 class PhoneField extends StatelessWidget {
+  final Function(String) onPhoneChange;
+
+  PhoneField({this.onPhoneChange});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,6 +33,7 @@ class PhoneField extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               margin: EdgeInsets.only(top: 5),
               child: TextField(
+                onChanged: (phoneNumber) => onPhoneChange(phoneNumber),
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Утасны дугаар',

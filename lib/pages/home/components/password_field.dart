@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class PasswordField extends StatelessWidget {
+  final Function(String) onPasswordChange;
+
+  PasswordField({this.onPasswordChange});
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +33,7 @@ class PasswordField extends StatelessWidget {
                 padding: EdgeInsets.all(8.0),
                 margin: EdgeInsets.only(top: 5),
                 child: TextField(
+                  onChanged: (password) => onPasswordChange(password),
                   obscureText: true,
                   decoration: InputDecoration(
                       border: InputBorder.none,
