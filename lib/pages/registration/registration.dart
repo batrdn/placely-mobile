@@ -4,10 +4,10 @@ import 'package:placely_mobile/constants.dart';
 
 class RegistrationPage extends StatefulWidget {
   @override
-  RegistrationPageState createState() => new RegistrationPageState();
+  _RegistrationPageState createState() => new _RegistrationPageState();
 }
 
-class RegistrationPageState extends State<RegistrationPage> {
+class _RegistrationPageState extends State<RegistrationPage> {
   int currentStep = 0;
   bool isComplete = false;
 

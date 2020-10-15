@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:placely_mobile/constants.dart';
+import 'package:placely_mobile/pages/create_furniture/create_furniture.dart';
 import 'package:placely_mobile/pages/furniture/furniture_screen.dart';
 import 'package:placely_mobile/pages/home/home.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         accentColor: primaryColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
+      home: CreateFurniture(),
     );
   }
 }

@@ -14,10 +14,10 @@ import 'package:placely_mobile/services/auth_service.dart';
 
 class HomePage extends StatefulWidget {
   @override
-  HomePageState createState() => HomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> {
   String phoneNumber;
   String password;
 
