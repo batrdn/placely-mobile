@@ -1,6 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:placely_mobile/constants.dart';
-import 'package:placely_mobile/models/furniture.dart';
 
 class FurnitureCard extends StatelessWidget {
   const FurnitureCard({
@@ -11,7 +12,7 @@ class FurnitureCard extends StatelessWidget {
   }) : super(key: key);
 
   final int itemIndex;
-  final Furniture furniture;
+  final dynamic furniture;
   final Function press;
 
   @override
@@ -91,7 +92,7 @@ class FurnitureCard extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        "${furniture.price}₮",
+                        "${furniture.price}",
                         style: Theme.of(context).textTheme.button,
                       ),
                     ),

@@ -22,6 +22,7 @@ environment:
 
 dependencies:
   simple_animations: ^2.2.2
+  graphql_flutter: ^3.0.0
   google_fonts: ^1.1.0
   flutter_svg: ^0.19.0
   http: ^0.12.2

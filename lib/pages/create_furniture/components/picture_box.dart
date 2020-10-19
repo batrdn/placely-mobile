@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class PictureBox extends StatelessWidget {
   @override
@@ -24,6 +25,10 @@ class PictureBox extends StatelessWidget {
                   child: Container(
                     width: 300,
                     height: 150,
+                    child: IconButton(
+                      icon: SvgPicture.asset("assets/icons/photo.svg"),
+                      onPressed: () {},
+                    ),
                   ),
                 ),
               ),

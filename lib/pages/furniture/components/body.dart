@@ -7,6 +7,10 @@ import 'category_list.dart';
 import 'furniture_card.dart';
 
 class Body extends StatelessWidget {
+  final List<Furniture> furniture;
+
+  Body(this.furniture);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

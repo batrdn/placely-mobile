@@ -24,7 +24,7 @@ class TitleField extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Icon(
-            Icons.ac_unit,
+            Icons.create,
             color: Color.fromRGBO(15, 163, 177, 1),
             size: 25.0,
           ),

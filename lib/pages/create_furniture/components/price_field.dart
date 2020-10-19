@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PriceField extends StatelessWidget {
-  final Function(String) onPriceChange;
+  final Function(int) onPriceChange;
 
   PriceField({this.onPriceChange});
 
@@ -34,7 +34,7 @@ class PriceField extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               margin: EdgeInsets.only(top: 5),
               child: TextField(
-                onChanged: (price) => onPriceChange(price),
+                onChanged: (price) => onPriceChange(int.parse(price)),
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                     border: InputBorder.none,

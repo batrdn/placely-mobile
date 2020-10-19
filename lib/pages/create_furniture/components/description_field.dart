@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DescriptionField extends StatelessWidget {
+  final Function(String) onDescriptionChange;
+
+  DescriptionField({this.onDescriptionChange});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,8 +29,11 @@ class DescriptionField extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               margin: EdgeInsets.only(top: 5),
               child: TextField(
+                onChanged: (description) =>
+                    this.onDescriptionChange(description),
                 decoration: InputDecoration(
                     border: InputBorder.none,
+                    hintText: 'Нэмэлт мэдээлэл',
                     hintStyle: TextStyle(color: Colors.grey[400])),
               ),
             ),
@@ -35,5 +42,4 @@ class DescriptionField extends StatelessWidget {
       ),
     );
   }
-
 }

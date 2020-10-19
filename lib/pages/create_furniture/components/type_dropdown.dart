@@ -2,14 +2,27 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TypeDropdown extends StatelessWidget {
+  final Function(String) onTypeChange;
+
   int _selectedValue = 0;
 
+  TypeDropdown({this.onTypeChange});
+
   List<DropdownMenuItem> types = [
-    DropdownMenuItem(child: Text("First Item"), value: 0),
-    DropdownMenuItem(child: Text("Second Item"), value: 1),
-    DropdownMenuItem(child: Text("Third Item"), value: 2),
-    DropdownMenuItem(child: Text("Fourth Item"), value: 3)
+    DropdownMenuItem(child: Text("Буйдан"), value: 0),
+    DropdownMenuItem(child: Text("Ор"), value: 1),
+    DropdownMenuItem(child: Text("Ширээ"), value: 2),
+    DropdownMenuItem(child: Text("Сандал"), value: 3),
+    DropdownMenuItem(child: Text("Бусад"), value: 4)
   ];
+
+  Map<int, String> typeMap = {
+    0: "Буйдан",
+    1: "Ор",
+    2: "Ширээ",
+    3: "Сандал",
+    4: "Бусад"
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +55,8 @@ class TypeDropdown extends StatelessWidget {
                       child: DropdownButton(
                           value: _selectedValue,
                           items: types,
-                          onChanged: (value) => print(value))))),
+                          onChanged: (value) =>
+                              onTypeChange(this.typeMap[value]))))),
         ],
       ),
     );
