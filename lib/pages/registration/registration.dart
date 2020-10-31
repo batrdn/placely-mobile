@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:placely_mobile/constants.dart';
+import 'package:placely_mobile/services/registration_service.dart';
 
 class RegistrationPage extends StatefulWidget {
   @override
@@ -10,14 +11,19 @@ class RegistrationPage extends StatefulWidget {
 class _RegistrationPageState extends State<RegistrationPage> {
   int currentStep = 0;
   bool isComplete = false;
+  static String phoneNumber;
+  static String password;
 
   next() {
     currentStep + 1 != steps.length
         ? goTo(currentStep + 1)
-        : setState(() => isComplete = true);
+        : Navigator.pop(context);
   }
 
   goTo(int step) {
+    if (step == steps.length - 1) {
+      RegistrationService.register(phoneNumber, password, password);
+    }
     setState(() => currentStep = step);
   }
 
@@ -36,24 +42,32 @@ class _RegistrationPageState extends State<RegistrationPage> {
         children: <Widget>[
           TextFormField(
             decoration: InputDecoration(labelText: 'Утасны дугаар'),
+            onChanged: (String value) {
+              phoneNumber = value;
+            },
           )
         ],
       ),
     ),
     Step(
-      isActive: false,
-      state: StepState.disabled,
+      isActive: true,
+      state: StepState.indexed,
       title: const Text('Нууц үг'),
+
       content: Column(
         children: <Widget>[
           TextFormField(
             decoration: InputDecoration(labelText: 'Нууц үг'),
+            onChanged: (String value) {
+              password = value;
+            },
           ),
         ],
       ),
     ),
     Step(
-      state: StepState.disabled,
+      state: StepState.indexed,
+      isActive: true,
       title: const Text('Баталгаажуулах код'),
       content: Column(
         children: <Widget>[

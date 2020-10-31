@@ -6,7 +6,7 @@ class CreateButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 50,
-      width: 350,
+      width: 325,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           gradient: LinearGradient(colors: [

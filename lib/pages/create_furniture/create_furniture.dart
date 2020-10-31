@@ -9,6 +9,7 @@ import 'package:placely_mobile/pages/create_furniture/components/picture_box.dar
 import 'package:placely_mobile/pages/create_furniture/components/price_field.dart';
 import 'package:placely_mobile/pages/create_furniture/components/title_field.dart';
 import 'package:placely_mobile/pages/create_furniture/components/type_dropdown.dart';
+import 'package:placely_mobile/pages/retailer_dashboard/retailer_dashboard.dart';
 import 'package:placely_mobile/utils/type_resolver.dart';
 
 class CreateFurniture extends StatefulWidget {
@@ -85,7 +86,11 @@ class _CreateFurnitureState extends State<CreateFurniture> {
                                               'description': description
                                             });
                                             print(result.data);
-                                            Navigator.of(context).pop();
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        RetailerDashboard()));
                                           }),
                                     ],
                                   )),

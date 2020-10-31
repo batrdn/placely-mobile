@@ -16,7 +16,9 @@ class RetailerDashboard extends StatelessWidget {
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
           List<Furniture> furniture =
-              ResponseParser.parse(result.data['allFurniture']);
+              ResponseParser.parse(result.data['allFurniture'])
+                  .reversed
+                  .toList();
           return Scaffold(
             appBar: buildAppBar(context),
             backgroundColor: primaryColor,

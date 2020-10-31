@@ -11,7 +11,7 @@ void main() {
 ValueNotifier<GraphQLClient> client = ValueNotifier(
   GraphQLClient(
     cache: InMemoryCache(),
-    link: HttpLink(uri: 'http://10.0.2.2:4000/graphql'),
+    link: HttpLink(uri: 'http://192.168.1.4:4000/graphql'),
   ),
 );
 

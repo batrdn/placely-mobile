@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:placely_mobile/models/furniture.dart';
 
 class ResponseParser {
@@ -15,10 +17,16 @@ class ResponseParser {
           title: title,
           price: price,
           description: description,
-          image: "assets/images/Item_1.png"
+          image: "assets/images/Item_" + generateRandomNumber(1, 3).toString() +
+              '.png'
       ));
     }
 
     return furnitureList;
+  }
+
+  static generateRandomNumber(int min, int max) {
+    var rn = new Random();
+    return min + rn.nextInt(max);
   }
 }

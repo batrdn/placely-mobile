@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:placely_mobile/pages/ar/ar_view.dart';
 
 class PictureBox extends StatelessWidget {
   @override
@@ -19,15 +20,15 @@ class PictureBox extends StatelessWidget {
                 ),
                 child: InkWell(
                   splashColor: Colors.blue.withAlpha(30),
-                  onTap: () {
-                    print('Card tapped.');
-                  },
                   child: Container(
                     width: 300,
                     height: 150,
                     child: IconButton(
                       icon: SvgPicture.asset("assets/icons/photo.svg"),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => ARView()));
+                      },
                     ),
                   ),
                 ),

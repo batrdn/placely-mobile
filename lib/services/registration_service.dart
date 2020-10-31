@@ -5,7 +5,9 @@ import 'package:http/http.dart' as http;
 class RegistrationService {
   static Future<http.Response> register(String phoneNumber, String password,
       String confirmPassword) {
-    return http.post('http://10.0.2.2:8099/keycloak/aim/register',
+    print(phoneNumber);
+    print(password);
+    return http.post('http://192.168.1.4:8099/keycloak/aim/register',
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -13,7 +15,10 @@ class RegistrationService {
           'tenant': 'master',
           'username': phoneNumber,
           'password': password,
-          'confirmPassword': confirmPassword
+          'confirmPassword': confirmPassword,
+          'phoneNumberAsUsername': true,
+          'emailAsUsername': false,
+          'userVerified': false
         }));
   }
 }
