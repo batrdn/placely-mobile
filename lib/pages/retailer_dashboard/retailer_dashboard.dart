@@ -15,10 +15,12 @@ class RetailerDashboard extends StatelessWidget {
         options: QueryOptions(documentNode: gql(getFurnitureQuery)),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
-          List<Furniture> furniture =
-              ResponseParser.parse(result.data['allFurniture'])
-                  .reversed
-                  .toList();
+          List<Furniture> furniture = [];
+          if (result != null) {
+            furniture = ResponseParser.parse(result.data['allFurniture'])
+                .reversed
+                .toList();
+          }
           return Scaffold(
             appBar: buildAppBar(context),
             backgroundColor: primaryColor,

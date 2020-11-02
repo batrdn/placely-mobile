@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:placely_mobile/constants.dart';
+import 'package:placely_mobile/pages/create_furniture/components/picture_box.dart';
 import 'package:placely_mobile/pages/home/home.dart';
 
 void main() {
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           accentColor: primaryColor,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: HomePage(),
+        home: PictureBox(),
       ),
       client: client,
     );

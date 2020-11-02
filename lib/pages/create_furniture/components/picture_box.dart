@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:placely_mobile/pages/ar/ar_view.dart';
 
 class PictureBox extends StatelessWidget {
+  static const platform = const MethodChannel("ar_activity");
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,8 +28,7 @@ class PictureBox extends StatelessWidget {
                     child: IconButton(
                       icon: SvgPicture.asset("assets/icons/photo.svg"),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => ARView()));
+                        getArActivity();
                       },
                     ),
                   ),
@@ -38,5 +39,13 @@ class PictureBox extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  getArActivity() async {
+    try {
+      await platform.invokeMethod('startArActivity');
+    } on PlatformException catch (e) {
+      print(e.message);
+    }
   }
 }

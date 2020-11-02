@@ -23,6 +23,7 @@ if (flutterVersionName == null) {
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
@@ -68,4 +69,8 @@ dependencies {
     implementation "com.google.ar.sceneform.ux:sceneform-ux:1.17.1"
     implementation "com.google.ar.sceneform:core:1.17.1"
     implementation "com.google.ar:core:1.18.0"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support:design:28.1.1'
+    implementation 'com.android.support:appcompat-v7:28.1'
+    implementation 'com.google.ar.sceneform:assets:1.17.1'
 }
