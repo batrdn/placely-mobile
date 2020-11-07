@@ -10,6 +10,9 @@ import com.google.ar.sceneform.rendering.ModelRenderable
 import com.google.ar.sceneform.rendering.Renderable
 import com.google.ar.sceneform.ux.ArFragment
 import com.google.ar.sceneform.ux.TransformableNode
+import java.io.File
+import java.io.FileInputStream
+import java.io.InputStream
 
 class ArActivity : AppCompatActivity() {
   private lateinit var arFragment: ArFragment
@@ -20,7 +23,7 @@ class ArActivity : AppCompatActivity() {
 
     arFragment = supportFragmentManager.findFragmentById(R.id.sceneform_fragment_view) as ArFragment
 
-    val modelLink = "https://github.com/yudiz-solutions/runtime_ar_android/raw/master/model/model.gltf"
+    val modelLink = "scene.gltf"
 
     arFragment.setOnTapArPlaneListener { hitResult, plane, _ ->
       val anchor = hitResult.createAnchor()

@@ -17,8 +17,7 @@ class ResponseParser {
           title: title,
           price: price,
           description: description,
-          image: "assets/images/Item_" + generateRandomNumber(1, 3).toString() +
-              '.png'
+          image: "assets/images/chair.png"
       ));
     }
 

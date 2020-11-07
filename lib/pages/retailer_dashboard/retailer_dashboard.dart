@@ -11,6 +11,11 @@ import 'package:placely_mobile/utils/parser.dart';
 class RetailerDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: buildAppBar(context),
+      backgroundColor: primaryColor,
+      body: Body(Furniture.dummy.reversed.toList()),
+    );
     return Query(
         options: QueryOptions(documentNode: gql(getFurnitureQuery)),
         builder: (QueryResult result,

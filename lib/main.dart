@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:placely_mobile/constants.dart';
-import 'package:placely_mobile/pages/create_furniture/components/picture_box.dart';
 import 'package:placely_mobile/pages/home/home.dart';
 
 void main() {
@@ -12,7 +11,7 @@ void main() {
 ValueNotifier<GraphQLClient> client = ValueNotifier(
   GraphQLClient(
     cache: InMemoryCache(),
-    link: HttpLink(uri: 'http://192.168.1.4:4000/graphql'),
+    link: HttpLink(uri: 'http://192.168.0.108:4000/graphql'),
   ),
 );
 
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
           accentColor: primaryColor,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: PictureBox(),
+        home: HomePage(),
       ),
       client: client,
     );

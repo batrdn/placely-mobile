@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:placely_mobile/constants.dart';
 
 class ViewAndAddToCart extends StatelessWidget {
+  static const platform = const MethodChannel("ar_activity");
+
   const ViewAndAddToCart({
     Key key,
   }) : super(key: key);
@@ -21,9 +24,14 @@ class ViewAndAddToCart extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          SvgPicture.asset(
-            "assets/icons/view.svg",
-            height: 18,
+          GestureDetector(
+            child: SvgPicture.asset(
+              "assets/icons/view.svg",
+              height: 18,
+            ),
+            onTap: () {
+              getArActivity();
+            },
           ),
           SizedBox(width: defaultPadding / 2),
           Text(
@@ -46,5 +54,13 @@ class ViewAndAddToCart extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  getArActivity() async {
+    try {
+      await platform.invokeMethod('startArActivity');
+    } on PlatformException catch (e) {
+      print(e.message);
+    }
   }
 }
