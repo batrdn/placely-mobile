@@ -7,7 +7,7 @@ class RegistrationService {
       String confirmPassword) {
     print(phoneNumber);
     print(password);
-    return http.post('http://192.168.43.246:8099/keycloak/aim/register',
+    return http.post('http://192.168.1.7:8100/ees/aim/register',
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },

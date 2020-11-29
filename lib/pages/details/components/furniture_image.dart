@@ -29,8 +29,8 @@ class FurnitureImage extends StatelessWidget {
               shape: BoxShape.circle,
             ),
           ),
-          Image.asset(
-            image,
+          Image.network(
+            'http://192.168.1.7:4000/placely/images/' + image,
             height: size.width * 0.75,
             width: size.width * 0.75,
             fit: BoxFit.cover,

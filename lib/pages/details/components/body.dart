@@ -9,6 +9,7 @@ class Body extends StatelessWidget {
   final Furniture furniture;
 
   const Body({Key key, this.furniture}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -57,10 +58,11 @@ class Body extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsets.symmetric(vertical: defaultPadding / 2),
+                    padding: EdgeInsets.symmetric(vertical: defaultPadding / 2),
                     child: Text(
-                      furniture.description,
+                      furniture.description != null
+                          ? furniture.description
+                          : "",
                       style: TextStyle(color: textLightColor),
                     ),
                   ),
@@ -68,7 +70,7 @@ class Body extends StatelessWidget {
                 ],
               ),
             ),
-            ViewAndAddToCart(),
+            ViewAndAddToCart(furniture.models),
           ],
         ),
       ),

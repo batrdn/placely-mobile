@@ -5,10 +5,9 @@ import 'package:placely_mobile/constants.dart';
 
 class ViewAndAddToCart extends StatelessWidget {
   static const platform = const MethodChannel("ar_activity");
+  final List<String> models;
 
-  const ViewAndAddToCart({
-    Key key,
-  }) : super(key: key);
+  ViewAndAddToCart(this.models);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class ViewAndAddToCart extends StatelessWidget {
               height: 18,
             ),
             onTap: () {
-              getArActivity();
+              getArActivity(models);
             },
           ),
           SizedBox(width: defaultPadding / 2),
@@ -56,9 +55,9 @@ class ViewAndAddToCart extends StatelessWidget {
     );
   }
 
-  getArActivity() async {
+  getArActivity(List<String> models) async {
     try {
-      await platform.invokeMethod('startArActivity');
+      await platform.invokeMethod('startArActivity', [models]);
     } on PlatformException catch (e) {
       print(e.message);
     }

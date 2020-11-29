@@ -8,8 +8,9 @@ import 'furniture_card.dart';
 
 class Body extends StatelessWidget {
   final List<Furniture> furniture;
+  final Function(String) onCategoryChange;
 
-  Body(this.furniture);
+  Body(this.furniture, this.onCategoryChange);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,9 @@ class Body extends StatelessWidget {
       bottom: false,
       child: Column(
         children: <Widget>[
-          CategoryList(),
+          CategoryList((String category) => {
+            onCategoryChange(category)
+          }),
           SizedBox(height: defaultPadding / 2),
           Expanded(
             child: Stack(

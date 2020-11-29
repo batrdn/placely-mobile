@@ -2,6 +2,8 @@ package io.mergen.placely_mobile
 
 import android.net.Uri
 import android.os.Bundle
+import android.os.StrictMode
+import android.os.StrictMode.ThreadPolicy
 import androidx.appcompat.app.AppCompatActivity
 import com.google.ar.core.Anchor
 import com.google.ar.sceneform.AnchorNode
@@ -11,19 +13,34 @@ import com.google.ar.sceneform.rendering.Renderable
 import com.google.ar.sceneform.ux.ArFragment
 import com.google.ar.sceneform.ux.TransformableNode
 import java.io.File
-import java.io.FileInputStream
-import java.io.InputStream
+import java.io.FileOutputStream
+import java.net.URL
+
 
 class ArActivity : AppCompatActivity() {
   private lateinit var arFragment: ArFragment
+  private val MODELS = "models"
+  private val HOST = "http://192.168.1.7:4000/placely/files/"
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.ar_activity)
 
+    val policy = ThreadPolicy.Builder().permitAll().build()
+
+    StrictMode.setThreadPolicy(policy)
+
     arFragment = supportFragmentManager.findFragmentById(R.id.sceneform_fragment_view) as ArFragment
 
-    val modelLink = "scene.gltf"
+    val models = intent.getStringArrayExtra(MODELS)
+
+    var modelLink = ""
+
+    for (model in models) {
+      if (model.contains(".gltf")) {
+        modelLink = HOST + model
+      }
+    }
 
     arFragment.setOnTapArPlaneListener { hitResult, plane, _ ->
       val anchor = hitResult.createAnchor()

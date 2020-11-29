@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 class AuthenticationService {
   static Future<http.Response> login(String phoneNumber, String password) {
-    return http.post('http://192.168.43.246:8099/keycloak/aim/login',
+    return http.post('http://192.168.1.7:8100/ees/aim/login',
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },

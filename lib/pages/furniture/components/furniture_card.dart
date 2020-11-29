@@ -53,8 +53,8 @@ class FurnitureCard extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: defaultPadding),
                   height: 160,
                   width: 200,
-                  child: Image.asset(
-                    furniture.image,
+                  child: Image.network(
+                    'http://192.168.1.7:4000/placely/images/' + furniture.image,
                     fit: BoxFit.cover,
                   ),
                 ),

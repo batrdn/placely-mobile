@@ -1,11 +1,13 @@
 final String getFurnitureQuery = """
-query {
-  allFurniture{
+{
+  listAllByPublishStatus(isPublished: true) {
     id,
     name,
     type,
     price,
-    description
+    description,
+    image,
+    models
   }
 }
 """;

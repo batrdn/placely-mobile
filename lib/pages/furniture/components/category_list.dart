@@ -2,13 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:placely_mobile/constants.dart';
 
 class CategoryList extends StatefulWidget {
+  final Function(String) onCategoryChange;
+
+  CategoryList(this.onCategoryChange);
+
   @override
-  _CategoryListState createState() => _CategoryListState();
+  _CategoryListState createState() => _CategoryListState(onCategoryChange);
 }
 
 class _CategoryListState extends State<CategoryList> {
   int selectedIndex = 0;
   List categories = ['Бүгд', 'Буйдан', 'Сандал', 'Ширээ', 'Ор', 'Бусад'];
+  final Function(String) onCategoryChange;
+
+  _CategoryListState(this.onCategoryChange);
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +29,7 @@ class _CategoryListState extends State<CategoryList> {
           onTap: () {
             setState(() {
               selectedIndex = index;
+              onCategoryChange(categories[selectedIndex]);
             });
           },
           child: Container(

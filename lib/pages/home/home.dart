@@ -3,13 +3,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:placely_mobile/animations/fade_animation.dart';
+import 'package:placely_mobile/pages/furniture/furniture_screen.dart';
 import 'package:placely_mobile/pages/home/components/fingerprint_button.dart';
 import 'package:placely_mobile/pages/home/components/login_button.dart';
 import 'package:placely_mobile/pages/home/components/password_field.dart';
 import 'package:placely_mobile/pages/home/components/phone_field.dart';
 import 'package:placely_mobile/pages/home/components/register_button.dart';
 import 'package:placely_mobile/pages/registration/registration.dart';
-import 'package:placely_mobile/pages/retailer_dashboard/retailer_dashboard.dart';
 import 'package:placely_mobile/services/auth_service.dart';
 
 class HomePage extends StatefulWidget {
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            RetailerDashboard()));
+                                            FurnitureScreen()));
                               }
                             },
                           ),

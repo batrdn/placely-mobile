@@ -20,12 +20,15 @@ class _FurnitureScreenState extends State<FurnitureScreen> {
       options: QueryOptions(documentNode: gql(getFurnitureQuery)),
       builder: (QueryResult result,
           {VoidCallback refetch, FetchMore fetchMore}) {
-        List<Furniture> furniture =
-            ResponseParser.parse(result.data['allFurniture']);
+        List<Furniture> furniture = new List();
+        if (result.data != null) {
+          furniture =
+              ResponseParser.parse(result.data['listAllByPublishStatus']);
+        }
         return Scaffold(
           appBar: buildAppBar(),
           backgroundColor: primaryColor,
-          body: Body(furniture),
+          body: Body(furniture, (String category) => {print(category)}),
         );
       },
     );
